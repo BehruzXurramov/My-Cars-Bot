@@ -77,6 +77,7 @@ export class BotUpdate {
 
   @Command("setwebhook")
   async setWebhook(ctx: Context) {
+    ctx.reply("Test ishladi")
     await this.botService.setWebhook(ctx);
   }
 
