@@ -397,6 +397,7 @@ export class BotService {
       return;
     }
     const result = await ctx.telegram.setWebhook(process.env.WEBHOOK_URL || "");
+    ctx.reply(JSON.stringify(result));
     console.log(result);
   }
 }
