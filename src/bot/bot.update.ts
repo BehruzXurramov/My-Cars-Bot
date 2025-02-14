@@ -1,4 +1,13 @@
-import { Action, Ctx, Hears, Help, On, Start, Update } from "nestjs-telegraf";
+import {
+  Action,
+  Command,
+  Ctx,
+  Hears,
+  Help,
+  On,
+  Start,
+  Update,
+} from "nestjs-telegraf";
 import { BotService } from "./bot.service";
 import { Context } from "telegraf";
 
@@ -64,6 +73,11 @@ export class BotUpdate {
   @Action(/^edityear_\d+$/)
   async editYear(@Ctx() ctx: Context) {
     await this.botService.editYear(ctx);
+  }
+
+  @Command("setwebhook")
+  async setWebhook(ctx: Context) {
+    await this.botService.setWebhook(ctx);
   }
 
   @On("text")

@@ -391,4 +391,12 @@ export class BotService {
       errorHandler(ctx, error, "editYear");
     }
   }
+
+  async setWebhook(ctx: Context) {
+    if (ctx.from?.id != process.env.ADMIN_ID) {
+      return;
+    }
+    const result = await ctx.telegram.setWebhook(process.env.WEBHOOK_URL || "");
+    console.log(result);
+  }
 }
